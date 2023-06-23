@@ -21,6 +21,10 @@ Route::get('/register', function () {
     return view('index.register');
 });
 
+Route::get('/confi', function () {
+    return view('index.confi');
+});
+
 
 Route::get('/login', function () {
     return view('index.login');

@@ -26,6 +26,9 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Acceder</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/confi">Configuracion</a>
+            </li>
           </ul>
         </div>
       </nav>
