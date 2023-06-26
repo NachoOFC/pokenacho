@@ -25,3 +25,7 @@ Route::get('/register', function () {
 Route::get('/login', function () {
     return view('index.login');
 });
+
+Route::get('/roulette', function () {
+    return view('roulette');
+});
