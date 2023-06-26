@@ -58,8 +58,17 @@
         <form id="form-configuracion" action="{{ route('configuracion.cambiar-contrasena') }}" method="POST">
             @csrf
             <!-- Campos para cambio de contraseña -->
+
             <div class="form-group">
-                <label for="password_actual">Contraseña actual</label>
+                <label for="password_actual">Nombre</label>
+                <input type="password" class="form-control" id="nombre" name="nombre" placeholder="Ingrese su nombre">
+            </div>
+            <div class="form-group">
+                <label for="password_actual">Correo</label>
+                <input type="password" class="form-control" id="correo" name="correo" placeholder="Ingrese su correo">
+            </div>
+            <div class="form-group">
+                <label for="password_actual">Contraseñaa actual</label>
                 <input type="password" class="form-control" id="password_actual" name="password_actual" placeholder="Ingrese su contraseña actual">
             </div>
             <div class="form-group">
