@@ -29,3 +29,7 @@ Route::get('/confi', function () {
 Route::get('/login', function () {
     return view('index.login');
 });
+Route::group(['prefix' => 'configuracion'], function () {
+    Route::post('/cambiar-contrasena', 'ConfiguracionController@cambiarContrasena')->name('configuracion.cambiar-contrasena');
+    Route::post('/cambiar-descripcion', 'ConfiguracionController@cambiarDescripcion')->name('configuracion.cambiar-descripcion');
+});
