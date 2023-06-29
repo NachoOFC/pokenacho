@@ -34,7 +34,7 @@
     <main>
       <div class="jumbotron">
         <h1 class="display-4">Bienvenidas gordaaas</h1>
-        <p class="lead">el que no branch bien le pegamos</p>
+        <p class="lead">se hicieron muy dependientes de mi puerkas quieren que les haga todo</p>
       </div>
 
     </main>
