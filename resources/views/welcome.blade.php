@@ -73,7 +73,7 @@
         </main>
 
         <footer>
-            <p>&copy; Todos los derechos reservados.</p>
+            <p>&copy; Todos los derechos reservados. por nacho</p>
         </footer>
     </div>
 </body>
