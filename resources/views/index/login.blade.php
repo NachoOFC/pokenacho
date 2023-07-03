@@ -79,7 +79,7 @@
                         <!-- TEXTO USUARIO -->
                         <div id="text_user" class="col-md-12 mx-auto" style="width:50%;">
                             <label for="exampleInputEmail1" class="form-label" style="color: white;">NOMBRE DE ENTRENADOR</label>
-                            <input type="text" class="form-control" style="background-color: black; color: white;" id="userlabel" aria-describedby="emailHelp">
+                            <input id="texto_usuario" type="text" class="form-control" style="background-color: black; color: white;"  aria-describedby="emailHelp">
                             <div id="User" class="form-text" style="color: white;">Recuerda cuidar a todos tus pokemon con mucho cariño.</div>
                         </div>
                         <!-- TEXTO CONTRASEÑA -->
@@ -90,7 +90,7 @@
                     </div>  
                     <div id="botones">
                         <div class="d-sm-12 gap-2 d-md-block text-center ">
-                            <button id="button_iniciar_sesion" type="button" class="btn btn-primary ">INICIAR SESION</button>
+                            <button id="button_iniciar_sesion" type="button" onclick="enviarFormulario" class="btn btn-primary ">INICIAR SESION</button>
                         </div>
                         <div class=" d-sm-12 gap-2 d-md-block text-center ">
                             <a id="volver_login" href="Registro.HTML" class="btn btn-info" role="button">REGISTRARSE</a>
