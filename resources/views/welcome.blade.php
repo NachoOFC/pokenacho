@@ -68,7 +68,7 @@
         <main>
             <div class="jumbotron">
                 <h1 class="display-4">Bienvenidas gordaaas</h1>
-                <p class="lead">Se hicieron muy dependientes de mí, puerkas, quieren que les haga todo.</p>
+                <p class="lead">todas mienten</p>
             </div>
         </main>
 
