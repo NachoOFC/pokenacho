@@ -3,7 +3,7 @@
 @section('title','Ruleta')
 
 @section('content')
-<script src="{{ asset('vendor/jquery/Winwheel.min.js') }}"></script>
+    
 
 
     <div class="container">
@@ -41,71 +41,9 @@
                             <canvas id="canvas" height="400px" width="400px">
                             </canvas>
                         </div>
-                        <script>
-                            var miRuleta = new Winwheel({
-                        
-                                'numSegments' : 5,
-                                'outerRadius' : 270,
-                                'segments':[
-                                    {'fillStyle': '#f1c40f', 'text': '?'},
-                                    {'fillStyle': '#2ecc71', 'text': '?'},
-                                    {'fillStyle': '#e67e22', 'text': '?'},
-                                    {'fillStyle': '#e74c3c', 'text': '?'},
-                                    {'fillStyle': '#8e44ad', 'text': '?'},
-                        
-                                ],
-                                'animation':{
-                                    'type':'spinToStop',
-                                    'duration': 6,
-                                    'callbackFinished':'Mensaje()',
-                                    'callbackAfter':'dibujarIndicador()'
-                                }
-                            });
-                        
-                            dibujarIndicador();
-                            function Mensaje() {
-                                var SegmentoSeleccionado = miRuleta.getIndicatedSegment();
-                                alert("Te ha tocado  " + SegmentoSeleccionado.text);
-                                if(SegmentoSeleccionado.text == "un Pokémon"){
-                                    $('#myModal1').modal({backdrop:'static'});
-                                }
-                                if(SegmentoSeleccionado.text == "un objeto"){
-                                    $('#myModal2').modal({backdrop:'static'});
-                                }
-                                if(SegmentoSeleccionado.text == "un Pokémon"){
-                                    $('#myModal3').modal({backdrop:'static'});
-                                }
-                                if(SegmentoSeleccionado.text == "un objeto"){
-                                    $('#myModal4').modal({backdrop:'static'});
-                                }
-                                if(SegmentoSeleccionado.text == "un objeto"){
-                                    $('#myModal5').modal({backdrop:'static'});
-                                }
-                        
-                                miRuleta.stopAnimation(false);
-                                miRuleta.rotationAngle = 0;
-                                miRuleta.draw();
-                                dibujarIndicador();
-                            }
-                            function dibujarIndicador() {
-                                var ctx = miRuleta.ctx;
-                                ctx.strokeStyle = 'navy';
-                                ctx.fillStyle = 'black';
-                                ctx.lineWidth = 2;
-                                ctx.beginPath();
-                                ctx.moveTo(300,0);
-                                ctx.lineTo(320,0);
-                                ctx.lineTo(300,40);
-                                ctx.lineTo(280,0);
-                                ctx.stroke();
-                                ctx.fill();
-                            }
-                        
-                        
-                        
-                        </script>
-                        
                     </div>
+
+                    
 
                     <div class="row justify-content-center">
                         <div class="col-md-2">
@@ -153,6 +91,70 @@
         </div>
         
     </div>
+
+    <script>
+        var miRuleta = new Winwheel({
+    
+            'numSegments' : 5,
+            'outerRadius' : 270,
+            'segments':[
+                {'fillStyle': '#f1c40f', 'text': 'pokemon'},
+                {'fillStyle': '#2ecc71', 'text': 'objeto'},
+                {'fillStyle': '#e67e22', 'text': 'pokemon'},
+                {'fillStyle': '#e74c3c', 'text': 'objeto'},
+                {'fillStyle': '#8e44ad', 'text': 'pokemon'},
+    
+            ],
+            'animation':{
+                'type':'spinToStop',
+                'duration': 6,
+                'callbackFinished':'Mensaje()',
+                'callbackAfter':'dibujarIndicador()'
+            }
+        });
+    
+        dibujarIndicador();
+        function Mensaje() {
+            var SegmentoSeleccionado = miRuleta.getIndicatedSegment();
+            alert("Te ha tocado  " + SegmentoSeleccionado.text);
+            if(SegmentoSeleccionado.text == "un Pokémon"){
+                $('#myModal1').modal({backdrop:'static'});
+            }
+            if(SegmentoSeleccionado.text == "un objeto"){
+                $('#myModal2').modal({backdrop:'static'});
+            }
+            if(SegmentoSeleccionado.text == "un Pokémon"){
+                $('#myModal3').modal({backdrop:'static'});
+            }
+            if(SegmentoSeleccionado.text == "un objeto"){
+                $('#myModal4').modal({backdrop:'static'});
+            }
+            if(SegmentoSeleccionado.text == "un objeto"){
+                $('#myModal5').modal({backdrop:'static'});
+            }
+    
+            miRuleta.stopAnimation(false);
+            miRuleta.rotationAngle = 0;
+            miRuleta.draw();
+            dibujarIndicador();
+        }
+        function dibujarIndicador() {
+            var ctx = miRuleta.ctx;
+            ctx.strokeStyle = 'navy';
+            ctx.fillStyle = 'black';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(300,0);
+            ctx.lineTo(320,0);
+            ctx.lineTo(300,40);
+            ctx.lineTo(280,0);
+            ctx.stroke();
+            ctx.fill();
+        }
+    
+    
+    
+    </script>
 
     {{-- la ruleta funciona con monedas --}}
 

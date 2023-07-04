@@ -26,7 +26,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokenacho - @yield('title')</title>
-    @vite(['resources/js/Winwheel.min.js','resources/js/TweenMax.min.js','resources/js/jQuery-2.1.4.min.js','resources/js/funciones.js'])
 </head>
 <body>
 <div class="container">
