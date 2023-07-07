@@ -76,33 +76,44 @@
 
 @section('content')
 <div class="row justify-content-center">
-      <div class="col-lg-6 my-4">
-        <h1>Formulario registro</h1>
-        <form id="form-registro">
-          <div class="form-group">
-            <label for="name">Nombre</label>
-            <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese su nombre">
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Ingrese su email">
-            <div id="correo_invalido_user_help_block" class="form-text" style="display: none;">
-                <span class="badge text-bg-danger">El correo ingresado no es válido.</span>
-            </div>
-            <div id="correo_existente_user_help_block" class="form-text" style="display: none;">
-                <span class="badge text-bg-danger">El correo ingresado ya se encuentra en uso.</span>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="password">Contraseña</label>
-            <input type="password" class="form-control" id="password" name="password" placeholder="Ingrese su contraseña">
-          </div>
-          <div class="form-group">
-            <label for="password_confirmation">Confirmar Contraseña</label>
-            <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Confirme su contraseña">
-          </div>
-          <button type="submit" id="bt-guardar" class="btn btn-success btn-block my-2">Guardar</button>
-        </form>
-      </div>
+        <div class="col-lg-6 my-4">
+            <h1>Formulario registro</h1>
+            <form id="form-registro">
+                <div class="form-group">
+                    <label for="name">Nombre</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese su nombre">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Ingrese su email">
+                    <div id="correo_invalido_user_help_block" class="form-text" style="display: none;">
+                        <span class="badge text-bg-danger">El correo ingresado no es válido.</span>
+                    </div>
+                    <div id="correo_existente_user_help_block" class="form-text" style="display: none;">
+                        <span class="badge text-bg-danger">El correo ingresado ya se encuentra en uso.</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" class="form-control" id="password" name="password"
+                        placeholder="Ingrese su contraseña">
+                    <div id="password_invalida_caracteres" class="form-text" style="display: none;">
+                        <span class="badge text-bg-danger">La contraseña invalida, debe tener minimo 8 caracteres...</span>
+                    </div>
+                    <div id="password_invalida_numeros" class="form-text" style="display: none;">
+                        <span class="badge text-bg-danger">La contraseña debe contener números.</span>
+                    </div>
+                    <div id="password_invalida_letras" class="form-text" style="display: none;">
+                        <span class="badge text-bg-danger">La contraseña debe contener letras.</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password_confirmation">Confirmar Contraseña</label>
+                    <input type="password" class="form-control" id="password_confirmation" name="password_confirmation"
+                        placeholder="Confirme su contraseña">
+                </div>
+                <button type="submit" id="bt-guardar" class="btn btn-success btn-block my-2">Guardar</button>
+            </form>
+        </div>
     </div>
 @endsection
