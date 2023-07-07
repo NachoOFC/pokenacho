@@ -1,0 +1,31 @@
+.ajuste-imagen {
+    max-width: 180px;
+}
+
+
+.ajuste-links {
+    font-size: 20px;
+    font-weight: 700;
+    color: rgb(11, 0, 112);
+    text-decoration: none;
+}
+.ajuste-links:hover {
+    font-size: 20px;
+    font-weight: 700;
+    color: rgb(141, 130, 236);
+    text-decoration: none;
+}
+.bordes-links {
+    border-right: 20px solid rgb(14, 14, 14);
+}
+
+.bordes-links:last-of-type {
+    border: none;
+}
+
+.ajuste-nav {
+    background: rgb(255,255,255);
+background: linear-gradient(180deg, rgba(255,255,255,1) 68%, rgba(255,238,140,1) 68%);
+border-radius: 15px;
+
+}
