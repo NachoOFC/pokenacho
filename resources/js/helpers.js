@@ -25,3 +25,5 @@ function probabilidadAGrados(probabiliad){
 function probabilidadARadianes(probabilidad){
 	return probabilidad/100 * 2 * Math.PI;
 }
+
+console.log('helpers cargado');

@@ -1,0 +1,12 @@
+{
+  "resources/css/ruleta.css": {
+    "file": "assets/ruleta-6bb9614d.css",
+    "isEntry": true,
+    "src": "resources/css/ruleta.css"
+  },
+  "resources/js/index.js": {
+    "file": "assets/index-13cbe7d8.js",
+    "isEntry": true,
+    "src": "resources/js/index.js"
+  }
+}
