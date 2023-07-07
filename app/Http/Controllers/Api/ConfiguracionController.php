@@ -12,103 +12,81 @@ use Illuminate\Auth\Events\Registered;
 
 class AuthController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        return Task::orderBy('created_at', 'asc')->get();
+    }
 
- public function cambiarContrasena(Request $request)
- {
-    // Validar los datos enviados en la solicitud
-    $request->validate([
-        'nombre' => 'required',
-        'correo' => 'required|email',
-        'password_actual' => 'required',
-        'password_nueva' => 'required|min:8|confirmed',
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+       
+      $this->validate($request, [ //inputs are not empty or null
+        'title' => 'required',
+        'description' => 'required',
     ]);
 
-    // Obtener el usuario autenticado
-    $user = Auth::user();
-
-    // Verificar si el nombre, correo y contraseña actual coinciden con los proporcionados
-    if ($request->input('nombre') !== $user->name) {
-        return redirect()->back()->withErrors(['nombre' => 'El nombre no coincide.']);
+    $task = new Task;
+    $task->title = $request->input('title'); //retrieving user inputs
+    $task->description = $request->input('description');  //retrieving user inputs
+    $task->save(); //storing values as an object
+    return $task; 
     }
 
-    if ($request->input('correo') !== $user->email) {
-        return redirect()->back()->withErrors(['correo' => 'El correo no coincide.']);
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        return Task::findorFail($id); 
     }
 
-    if (!password_verify($request->input('password_actual'), $user->password)) {
-        return redirect()->back()->withErrors(['password_actual' => 'La contraseña actual es incorrecta.']);
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
     }
 
-    // Actualizar la contraseña del usuario
-    $user->password = bcrypt($request->input('password_nueva'));
-    $user->save();
-
-    return redirect()->back()->with('success', 'Contraseña cambiada correctamente.');
-}
-
-public function cambiarDescripcion(Request $request)
-{
-    // Validar los datos enviados en la solicitud
-    $request->validate([
-        'descripcion' => 'required',
-    ]);
-
-    // Obtener el usuario autenticado
-    $user = Auth::user();
-
-    // Actualizar la descripción del usuario
-    $user->descripcion = $request->input('descripcion');
-    $user->save();
-
-    return redirect()->back()->with('success', 'Descripción cambiada correctamente.');
-}
-public function cambiarContrasena(Request $request)
-{
-    // Validar los datos enviados en la solicitud
-    $request->validate([
-        'nombre' => 'required',
-        'correo' => 'required|email',
-        'password_actual' => 'required',
-        'password_nueva' => 'required|min:8|confirmed',
-    ]);
-
-    // Obtener el usuario autenticado
-    $user = Auth::user();
-
-    // Verificar si el nombre, correo y contraseña actual coinciden con los proporcionados
-    if ($request->input('nombre') !== $user->name) {
-        return redirect()->back()->withErrors(['nombre' => 'El nombre no coincide.']);
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        $this->validate($request, [ // the new values should not be null
+            'title' => 'required',
+            'description' => 'required',
+        ]);
+  
+        $task = Task::findorFail($id); // uses the id to search values that need to be updated.
+        $task->title = $request->input('title'); //retrieves user input
+        $task->description = $request->input('description');////retrieves user input
+        $task->save();//saves the values in the database. The existing data is overwritten.
+        return $task; // 
     }
 
-    if ($request->input('correo') !== $user->email) {
-        return redirect()->back()->withErrors(['correo' => 'El correo no coincide.']);
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        $task = Task::findorFail($id); //searching for object in database using ID
+        if($task->delete()){ //deletes the object
+            return 'deleted successfully'; //shows a message when the delete operation was successful.
+        }
     }
-
-    if (!password_verify($request->input('password_actual'), $user->password)) {
-        return redirect()->back()->withErrors(['password_actual' => 'La contraseña actual es incorrecta.']);
-    }
-
-    // Actualizar la contraseña del usuario
-    $user->password = bcrypt($request->input('password_nueva'));
-    $user->save();
-
-    return redirect()->back()->with('success', 'Contraseña cambiada correctamente.');
-}
-
-public function cambiarDescripcion(Request $request)
-{
-    // Validar los datos enviados en la solicitud
-    $request->validate([
-        'descripcion' => 'required',
-    ]);
-
-    // Obtener el usuario autenticado
-    $user = Auth::user();
-
-    // Actualizar la descripción del usuario
-    $user->descripcion = $request->input('descripcion');
-    $user->save();
-
-    return redirect()->back()->with('success', 'Descripción cambiada correctamente.');
-}
 }
