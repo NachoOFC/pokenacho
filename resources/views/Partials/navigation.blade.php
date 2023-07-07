@@ -5,7 +5,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse d-flex navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav mx-auto text-center">
+          <ul class="navbar-nav mx-auto text-center gap-5">
             <li class="nav-item">
               <a class="nav-link" href="#">Inicio</a>
             </li>
@@ -18,13 +18,17 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Contacto</a>
             </li>
-          </ul>
-          <ul class="navbar-nav text-end">
             <li class="nav-item">
               <a class="nav-link" href="/register">Registrarse</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Acceder</a>
+              <a class="nav-link" href="/recompensa">Iniciar Sesión</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/map">Mapa</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/chat/{location}">Chat</a>
             </li>
           </ul>
         </div>

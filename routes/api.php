@@ -24,3 +24,9 @@ Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
 
 Route::post('verificar-email', [AuthController::class, 'verificarEmail']);
+
+Route::post('verifica-recompensa', [RecompensaController::class, 'verificaRecompensa']);
+
+Route::post('verifica-tiempo/{id}', [RecompensaController::class, 'verificaTiempo']);
+
+Route::post('guarda-recompensa/{id}', [RecompensaController::class, 'guardaRecompensa']);
