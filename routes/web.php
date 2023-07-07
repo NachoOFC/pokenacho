@@ -27,5 +27,5 @@ Route::get('/login', function () {
 });
 
 Route::get('/roulette', function () {
-    return view('index.roulette', ['pokedollar' => 1000]);
+    return view('index.roulette', ['pokedollar' => '530']);
 });

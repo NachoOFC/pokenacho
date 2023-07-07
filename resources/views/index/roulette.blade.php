@@ -1,7 +1,18 @@
-@extends('Layouts.app')
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
-@section('title','Ruleta')
+    <link rel="stylesheet" href="/css/ruleta.css">
+    <script src="/js/index.js" defer></script>
+	<script src="/js/helpers.js"></script>
 
+    @extends('Layouts.app')
+
+    @section('title','Ruleta')
+
+</head>
+<body>
 @section('content')
     
 
@@ -37,9 +48,11 @@
                         
                         <h2>todo lo que sería la ruleta</h2>
                         {{-- intento 4 --}}
-                        <div class="col-md-6">
-                            <canvas id="canvas" height="400px" width="400px">
-                            </canvas>
+                        <div class="col-md-12">
+                            <div class="d-flex justify-content-center">
+                                <div id="ruleta">
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -47,7 +60,7 @@
 
                     <div class="row justify-content-center">
                         <div class="col-md-2">
-                            <button id="btn-girar" type="button" onclick="miRuleta.startAnimation();" class="btn btn-primary">Girar Ruleta</button>
+                            <button id="btnGirar" type="button" onclick="miRuleta.startAnimation();" class="btn btn-primary">Girar Ruleta</button>
                         </div>
                     </div>
                 </div>
@@ -91,70 +104,9 @@
         </div>
         
     </div>
+    
 
-    <script>
-        var miRuleta = new Winwheel({
     
-            'numSegments' : 5,
-            'outerRadius' : 270,
-            'segments':[
-                {'fillStyle': '#f1c40f', 'text': 'pokemon'},
-                {'fillStyle': '#2ecc71', 'text': 'objeto'},
-                {'fillStyle': '#e67e22', 'text': 'pokemon'},
-                {'fillStyle': '#e74c3c', 'text': 'objeto'},
-                {'fillStyle': '#8e44ad', 'text': 'pokemon'},
-    
-            ],
-            'animation':{
-                'type':'spinToStop',
-                'duration': 6,
-                'callbackFinished':'Mensaje()',
-                'callbackAfter':'dibujarIndicador()'
-            }
-        });
-    
-        dibujarIndicador();
-        function Mensaje() {
-            var SegmentoSeleccionado = miRuleta.getIndicatedSegment();
-            alert("Te ha tocado  " + SegmentoSeleccionado.text);
-            if(SegmentoSeleccionado.text == "un Pokémon"){
-                $('#myModal1').modal({backdrop:'static'});
-            }
-            if(SegmentoSeleccionado.text == "un objeto"){
-                $('#myModal2').modal({backdrop:'static'});
-            }
-            if(SegmentoSeleccionado.text == "un Pokémon"){
-                $('#myModal3').modal({backdrop:'static'});
-            }
-            if(SegmentoSeleccionado.text == "un objeto"){
-                $('#myModal4').modal({backdrop:'static'});
-            }
-            if(SegmentoSeleccionado.text == "un objeto"){
-                $('#myModal5').modal({backdrop:'static'});
-            }
-    
-            miRuleta.stopAnimation(false);
-            miRuleta.rotationAngle = 0;
-            miRuleta.draw();
-            dibujarIndicador();
-        }
-        function dibujarIndicador() {
-            var ctx = miRuleta.ctx;
-            ctx.strokeStyle = 'navy';
-            ctx.fillStyle = 'black';
-            ctx.lineWidth = 2;
-            ctx.beginPath();
-            ctx.moveTo(300,0);
-            ctx.lineTo(320,0);
-            ctx.lineTo(300,40);
-            ctx.lineTo(280,0);
-            ctx.stroke();
-            ctx.fill();
-        }
-    
-    
-    
-    </script>
 
     {{-- la ruleta funciona con monedas --}}
 
@@ -177,6 +129,7 @@
             {{-- será que sus stats sean aleatorios o el pokemon es aleatorio? --}}
         
 @endsection
+</body>
 
 {{-- recibe --}}
     {{-- monedas --}}

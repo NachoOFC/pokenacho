@@ -1,0 +1,169 @@
+:root{
+	--escala: 450px;
+	--giroRuleta: 0deg;
+}
+
+*{
+	box-sizing: border-box;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	text-align: center;
+}
+
+#container{
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+
+#ruleta{
+	position: relative;
+	box-sizing: border-box;
+	height: var(--escala);
+	width: var(--escala);
+	border: 2px solid black;
+	border-radius: 50%;
+	overflow: hidden;
+	margin: 20px;
+}
+
+
+#cartelGanador{
+	position: absolute;
+	left: -150px;
+	top: -40px;
+	background-color: rgba(29,141,125,1);
+	min-height: 55px;
+	width: 300px;
+	font-weight: bold;
+}
+#marcador{
+	position: absolute;
+	z-index: 10;
+	top: -20px;
+	background-color: black;
+	height: 100px;
+	width: 5px;
+	pointer-events: none;
+}
+
+/* Transportador */
+#ruleta img{
+	position: absolute;
+	left: 0;
+	transform:rotate(90deg);
+	width: var(--escala);
+	z-index: 10;
+	opacity: 80%;
+	pointer-events: none;
+}
+
+#opcionesContainer{
+	transform-origin: center;
+}
+
+.opcion{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: var(--escala);
+	width: var(--escala);
+	background-color: var(--color);
+	transform: rotate( var(--deg));
+	
+}
+
+/* Texto de opcion*/
+.nombre{
+	margin: 0;
+	padding-top: 30px;
+	color: white;
+	text-align: center;
+	height: calc(var(--escala) / 2);
+	position: absolute;
+	/*bottom: 80%;*/
+	top: -0%;
+	left: calc(var(--escala) / 4 );
+	transform-origin: bottom center;
+	font-size: calc(var(--escala) / 25 );
+	text-overflow: clip;
+	pointer-events: none;
+}
+
+.separador{
+	position: absolute;
+	left: calc(var(--escala) / 2 - 1px);
+	height: calc(var(--escala) / 2);;
+	width: 2px;
+	transform-origin: center bottom;
+	background-color: rgb(0, 0, 0);
+	z-index: 1;
+	border-radius: 2px;
+}
+
+
+.girar{
+	animation-name: girar;
+	animation-duration: 5s;
+	animation-timing-function: cubic-bezier(0.1, 0, 0.18, 0.99);;
+	animation-direction: normal;
+	animation-fill-mode: forwards;
+}
+
+/* Modal y formulario */
+dialog{
+	border:unset;
+	border-radius: 10px;
+	opacity: 95%;
+	padding: 30px;
+	-webkit-box-shadow: 10px 10px 20px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 10px 10px 20px 0px rgba(0,0,0,0.75);
+	box-shadow: 10px 10px 20px 0px rgba(0,0,0,0.75);
+}
+
+dialog::backdrop{
+	backdrop-filter: blur(2px);
+}
+
+dialog input[type=number]{
+	max-width: 50px;
+}
+
+dialog #agregar{
+	display: block;
+	margin: auto;
+}
+
+#tituloForm{
+	display: flex;
+	justify-content: space-around;
+	font-weight: bold;
+	text-decoration: underline;
+	gap: 40px;
+}
+
+#formContainer{
+	display: flex;
+	flex-direction: column;
+}
+
+#formContainer div{
+	display: flex;
+}
+
+#formContainer div label{
+	margin-right: auto;
+}
+
+/* Extra */
+footer{
+	user-select: none;
+}
+
+@keyframes girar {
+	100%{
+		transform: rotate( var(--giroRuleta) );
+	}
+}
